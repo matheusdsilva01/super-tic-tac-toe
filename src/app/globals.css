@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  @apply bg-zinc-900 text-zinc-100;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.path {
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: draw 2s ease forwards;
+}
+
+.second {
+  animation-delay: 0.5s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circle {
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  animation: drawCircle 1.25s ease forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
   }
 }
