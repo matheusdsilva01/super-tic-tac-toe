@@ -24,7 +24,7 @@ export default function Home() {
     const currentPlayerMoves = board.filter(
       (square) => square && square?.value === currentPlayer.value
     ) as Player[] | [];
-    if (currentPlayerMoves.length >= 3) {
+    if (!winner && currentPlayerMoves.length >= 3) {
       const lowestMove = Math.min(
         ...currentPlayerMoves.map((move) => move.currentMove)
       );
@@ -89,7 +89,9 @@ export default function Home() {
     }
 
     if (roundWon) {
-      setWinner(currentPlayer.value);
+      setTimeout(() => {
+        setWinner(currentPlayer.value);
+      }, 800);
     }
     switchPlayer();
   };
@@ -117,21 +119,21 @@ export default function Home() {
             fill="currentColor"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
             ></path>
           </svg>
         </Link>
       </header>
       <section className="mt-8 h-full min-h-[520px]">
-        <p className="text-center mb-2 text-xl font-semibold">
+        <p className="text-center mb-2 text-xl font-semibold flex justify-center items-center">
           É a vez do jogador{" "}
-          <span
-            className={
-              currentPlayer.value === "X" ? "text-[#00DCD5]" : "text-[#B0142B]"
-            }
-          >
-            {currentPlayer.value}
+          <span className="flex">
+            {currentPlayer.value === "X" ? (
+              <PlayX withAnimation={false} width={32} height={32} />
+            ) : (
+              <Play0 withAnimation={false} width={32} height={32} />
+            )}
           </span>
         </p>
         <div className="grid m-auto grid-cols-3 gap-2 w-fit p-4 bg-zinc-700 rounded-md">
@@ -150,22 +152,16 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div className="mt-2 space-x-4 text-center">
+        <div className="mt-8 flex gap-x-4 text-center justify-center">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors"
             onClick={() => setBoard(Array(9).fill(null))}
           >
-            Reiniciar
+            Reiniciar jogo
           </button>
-          <Link
-            href="#howToPlay"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Como jogar
-          </Link>
+          <HowToPlay />
         </div>
       </section>
-      <HowToPlay />
       {winner && (
         <ModalWinner
           open={!!winner}

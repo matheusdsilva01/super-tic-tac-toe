@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { PlayX } from "./PlayX";
+import { Play0 } from "./Play0";
 
 interface ModalWinnerProps {
   open: boolean;
@@ -31,18 +33,26 @@ export const ModalWinner = ({ closeModal, open, winner }: ModalWinnerProps) => {
 
   return (
     <div
-      className={`modal ${
+      className={
         openModal
-          ? "fixed z-50 flex flex-col inset-0 h-dvh bg-zinc-700/50"
+          ? "fixed flex flex-col z-50 inset-0 h-dvh bg-zinc-700/50 p-2"
           : "hidden"
-      }`}
+      }
     >
-      <div className="m-auto max-w-56 w-full bg-zinc-600 rounded-lg px-4 py-6">
-        <h2 className="text-lg text-whitetext-center">
-          {winner === "X" ? "Jogador X" : "Jogador 0"} venceu!
+      <div className="m-auto max-w-5xl w-full bg-zinc-600/70 rounded-lg px-4 py-28 text-center border border-blue-400 shadow-blue-300">
+        <h2 className="text-xl md:text-2xl font-bold flex justify-center items-center font-mono uppercase mb-4">
+          Vitória do jogador{" "}
+          <span>
+            {winner === "X" ? (
+              <PlayX withAnimation={false} width={28} height={28} />
+            ) : (
+              <Play0 withAnimation={false} width={28} height={28} />
+            )}
+          </span>
+          !🏆
         </h2>
         <button
-          className="mt-4 bg-zinc-900 text-white font-mono px-4 py-2 rounded-lg"
+          className="mt-8 bg-green-500 hover:bg-green-700 text-white font-mono px-4 py-2 rounded-lg transition-colors"
           onClick={handleCloseModal}
         >
           Jogar novamente
