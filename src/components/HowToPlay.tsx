@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const HowToPlay = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -33,27 +33,41 @@ export const HowToPlay = () => {
         }}
         className={`modal ${
           openModal
-            ? "fixed z-50 flex flex-col inset-0 h-dvh bg-zinc-700/50"
+            ? "fixed z-50 p-2 flex flex-col inset-0 h-dvh bg-zinc-700/50"
             : "hidden"
         }`}
       >
         <div className="m-auto max-w-5xl w-full bg-zinc-600 rounded-lg px-4 py-6">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-xl md:text-2xl font-bold mb-4">
             Como jogar - Super Jogo da Velha
           </h2>
-          <h3 className="text-xl font-semibold mb-2">Objetivo</h3>
-          <p className="mb-4">
+          <h3 className="text-lg md:text-xl font-semibold mb-2">Objetivo</h3>
+          <p className="mb-4 font-light">
             Os jogadores se alternam, jogando uma peça por vez, o jogador que
             conseguir formar uma linha com 3 peças primeiro, podendo ser na
             horizontal, vertical ou diagonal, vence a partida.
           </p>
-          <h3 className="text-xl font-semibold mb-2">Regra especial</h3>
-          <p>
+          <h3 className="text-lg md:text-xl font-semibold mb-2">
+            Regra especial
+          </h3>
+          <p className="font-light">
             Cada jogador só pode ter no máximo 3 peças no tabuleiro, caso o
             jogador faça um quarto movimento, o movimento mais antigo será
             sinalizado no tabuleiro indicando que a peça será removida após o
             próximo movimento.
           </p>
+          {/* <div className="w-full max-w-56 m-auto overflow-hidden">
+            <video className="object-cover h-auto w-full" autoPlay muted loop>
+              <source src="/media/preview.webm" type="video/webm" />
+              <source src="/media/preview.mp4" type="video/mp4" />
+            </video>
+          </div> */}
+          <button
+            className="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors"
+            onClick={() => setOpenModal(false)}
+          >
+            Fechar
+          </button>
         </div>
       </div>
     </>
