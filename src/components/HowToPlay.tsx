@@ -37,8 +37,28 @@ export const HowToPlay = () => {
             : "hidden"
         }`}
       >
-        <div className="m-auto max-w-5xl w-full bg-zinc-600 rounded-lg px-4 py-6">
-          <h2 className="text-xl md:text-2xl font-bold mb-4">
+        <div className="m-auto max-w-5xl w-full bg-zinc-600 rounded-lg overflow-auto px-4 py-6 relative">
+          <button
+            className="absolute top-0 right-0 p-2 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setOpenModal(false)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              className="text-current"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+          <h2 className="text-xl md:text-2xl font-bold mb-4 mt-2">
             Como jogar - Super Jogo da Velha
           </h2>
           <h3 className="text-lg md:text-xl font-semibold mb-2">Objetivo</h3>
@@ -56,12 +76,10 @@ export const HowToPlay = () => {
             sinalizado no tabuleiro indicando que a peça será removida após o
             próximo movimento.
           </p>
-          {/* <div className="w-full max-w-56 m-auto overflow-hidden">
-            <video className="object-cover h-auto w-full" autoPlay muted loop>
-              <source src="/media/preview.webm" type="video/webm" />
-              <source src="/media/preview.mp4" type="video/mp4" />
-            </video>
-          </div> */}
+          <video className="h-auto w-56 m-auto mt-4" autoPlay muted loop>
+            <source src="/media/preview.webm" type="video/webm" />
+            <source src="/media/preview.mp4" type="video/mp4" />
+          </video>
           <button
             className="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors"
             onClick={() => setOpenModal(false)}
