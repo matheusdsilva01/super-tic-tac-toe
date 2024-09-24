@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Super jogo da velha",
   description: "Jogo da velha com super poderes",
   openGraph: {
-    images: ["/og-image.png"],
+    images: ["/media/og-image.png"],
   },
 };
 
