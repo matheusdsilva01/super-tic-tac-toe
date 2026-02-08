@@ -20,7 +20,7 @@ export const HowToPlay = () => {
   return (
     <>
       <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors"
+        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-sm transition-colors"
         onClick={() => setOpenModal(true)}
       >
         Como jogar
@@ -81,7 +81,7 @@ export const HowToPlay = () => {
             <source src="/media/preview.mp4" type="video/mp4" />
           </video>
           <button
-            className="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors"
+            className="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-sm transition-colors"
             onClick={() => setOpenModal(false)}
           >
             Fechar
