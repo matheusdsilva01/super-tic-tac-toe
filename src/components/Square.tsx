@@ -18,15 +18,17 @@ export function Square({
   return (
     <button
       disabled={disabled}
-      className={`w-16 h-16 border border-slate-400 bg-slate-400 rounded shadow-md ${
-        isAboutToExpire ? "border-red-500 animate-pulse" : ""
+      className={`w-28 h-28 md:w-36 md:h-36 bg-white border-2 rounded-2xl shadow-sm flex items-center justify-center transition-all hover:shadow-md ${
+        isAboutToExpire
+          ? "border-red-400 animate-pulse shadow-red-200"
+          : "border-gray-100"
       }`}
       onClick={onClick}
     >
       {value?.value === "X" ? (
-        <PlayX />
+        <PlayX width={48} height={48} />
       ) : value?.value === "0" ? (
-        <Play0 />
+        <Play0 width={48} height={48} />
       ) : null}
     </button>
   );

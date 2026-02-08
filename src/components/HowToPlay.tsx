@@ -20,9 +20,10 @@ export const HowToPlay = () => {
   return (
     <>
       <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-sm transition-colors"
+        className="flex items-center gap-2 bg-[#00bc7d] hover:bg-[#00a86e] text-white text-sm h-9 px-4 rounded-lg shadow-md hover:shadow-lg transition-all"
         onClick={() => setOpenModal(true)}
       >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
         Como jogar
       </button>
       <div
@@ -33,13 +34,13 @@ export const HowToPlay = () => {
         }}
         className={`modal ${
           openModal
-            ? "fixed z-50 p-2 flex flex-col inset-0 h-dvh bg-zinc-700/50"
+            ? "fixed z-50 p-2 flex flex-col inset-0 h-dvh bg-black/50"
             : "hidden"
         }`}
       >
-        <div className="m-auto max-w-5xl w-full bg-zinc-600 rounded-lg overflow-auto px-4 py-6 relative">
+        <div className="m-auto max-w-xl w-full bg-white text-gray-800 rounded-xl overflow-auto px-6 py-8 relative shadow-2xl">
           <button
-            className="absolute top-0 right-0 p-2 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-2 right-2 p-2 text-gray-400 hover:text-gray-600 transition-colors"
             onClick={() => setOpenModal(false)}
           >
             <svg
@@ -81,7 +82,7 @@ export const HowToPlay = () => {
             <source src="/media/preview.mp4" type="video/mp4" />
           </video>
           <button
-            className="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-sm transition-colors"
+            className="mt-8 bg-[#00bc7d] hover:bg-[#00a86e] text-white text-sm px-4 py-2 rounded-lg transition-colors"
             onClick={() => setOpenModal(false)}
           >
             Fechar

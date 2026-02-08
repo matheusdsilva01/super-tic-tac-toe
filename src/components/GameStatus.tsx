@@ -8,15 +8,15 @@ interface GameStatusProps {
 
 export function GameStatus({ currentPlayer }: GameStatusProps) {
   return (
-    <p className="text-center mb-2 text-xl font-semibold flex justify-center items-center">
-      É a vez do jogador{" "}
+    <div className="flex items-center gap-3 bg-white rounded-full px-6 h-12 shadow-md">
+      <span className="text-base text-gray-700">É a vez do jogador</span>
       <span className="flex">
         {currentPlayer.value === "X" ? (
-          <PlayX withAnimation={false} width={32} height={32} />
+          <PlayX withAnimation={false} width={24} height={24} />
         ) : (
-          <Play0 withAnimation={false} width={32} height={32} />
+          <Play0 withAnimation={false} width={24} height={24} />
         )}
       </span>
-    </p>
+    </div>
   );
 }

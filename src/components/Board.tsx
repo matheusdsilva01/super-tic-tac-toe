@@ -9,7 +9,7 @@ interface BoardProps {
 
 export function Board({ board, lowestMoveIndex, onSquareClick }: BoardProps) {
   return (
-    <div className="grid m-auto grid-cols-3 gap-2 w-fit p-4 bg-zinc-700 rounded-md">
+    <div className="grid grid-cols-3 gap-3 w-fit">
       {board.map((square, index) => (
         <Square
           key={index}

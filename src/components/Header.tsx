@@ -2,20 +2,22 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="w-full flex justify-between bg-zinc-950 px-4 py-6">
-      <h1 className="text-lg text-white font-mono">Super Jogo da Velha</h1>
+    <header className="w-full flex items-center justify-between px-6 py-6">
+      <h1 className="text-2xl text-gray-900 font-bold">Super Jogo da Velha</h1>
       <Link
         href="https://github.com/matheusdsilva01"
         rel="noopener noreferrer"
         target="_blank"
+        className="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow"
       >
         <svg
           aria-hidden="true"
           role="img"
           viewBox="0 0 16 16"
-          width="32"
-          height="32"
+          width="24"
+          height="24"
           fill="currentColor"
+          className="text-gray-800"
         >
           <path
             fillRule="evenodd"
