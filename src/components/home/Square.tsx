@@ -1,6 +1,6 @@
 import type { Player } from "@/types/game";
-import { PlayX } from "./PlayX";
-import { Play0 } from "./Play0";
+import { PlayX } from "@/components/home/PlayX";
+import { Play0 } from "@/components/home/Play0";
 
 interface SquareProps {
   value: Player | null;

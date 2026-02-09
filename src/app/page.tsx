@@ -1,11 +1,11 @@
 "use client";
 
 import { useGameState } from "@/hooks/useGameState";
-import { Header } from "@/components/Header";
-import { GameStatus } from "@/components/GameStatus";
-import { Board } from "@/components/Board";
-import { GameControls } from "@/components/GameControls";
-import { ModalWinner } from "@/components/ModalWinner";
+import { Header } from "@/components/layout/Header";
+import { GameStatus } from "@/components/home/GameStatus";
+import { Board } from "@/components/home/Board";
+import { GameControls } from "@/components/home/GameControls";
+import { ModalWinner } from "@/components/home/ModalWinner";
 
 export default function Home() {
   const { board, winner, currentPlayer, play, resetBoard, getLowestMoveIndex } =
@@ -29,9 +29,7 @@ export default function Home() {
         />
         <GameControls onReset={resetBoard} />
       </section>
-      {winner && (
-        <ModalWinner winner={winner} closeModal={resetBoard} />
-      )}
+      {winner && <ModalWinner winner={winner} closeModal={resetBoard} />}
     </main>
   );
 }

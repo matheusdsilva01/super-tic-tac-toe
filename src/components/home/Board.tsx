@@ -1,5 +1,5 @@
 import type { Board as BoardType } from "@/types/game";
-import { Square } from "./Square";
+import { Square } from "@/components/home/Square";
 
 interface BoardProps {
   board: BoardType;
