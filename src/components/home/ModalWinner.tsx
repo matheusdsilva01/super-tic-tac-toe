@@ -58,11 +58,7 @@ export function ModalWinner({ closeModal, winner }: ModalWinnerProps) {
             Vitória do jogador
           </h2>
           <span>
-            {winner === "X" ? (
-              <PlayX withAnimation={false} width={32} height={32} />
-            ) : (
-              <Play0 withAnimation={false} width={32} height={32} />
-            )}
+            {winner === "X" ? <PlayX size={32} /> : <Play0 size={32} />}
           </span>
           <span className="text-2xl">🏆</span>
         </div>
