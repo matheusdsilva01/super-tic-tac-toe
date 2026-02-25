@@ -1,6 +1,5 @@
 import type { Player } from "@/types/game";
-import { PlayX } from "@/components/home/PlayX";
-import { Play0 } from "@/components/home/Play0";
+import { Circle, X } from "lucide-react";
 
 interface MultiplayerGameStatusProps {
   currentPlayer: Player;
@@ -19,11 +18,7 @@ export function MultiplayerGameStatus({
         {isMyTurn ? "Sua vez" : "Vez do oponente"}
       </span>
       <span className="flex">
-        {currentPlayer.value === "X" ? (
-          <PlayX withAnimation={false} width={24} height={24} />
-        ) : (
-          <Play0 withAnimation={false} width={24} height={24} />
-        )}
+        {currentPlayer.value === "X" ? <X size={24} /> : <Circle size={24} />}
       </span>
       <span className="text-xs text-gray-400 ml-1">(Você: {mySymbol})</span>
     </div>
