@@ -15,8 +15,7 @@ export function WaitingRoom({
   connectionStatus,
 }: WaitingRoomProps) {
   const [copied, setCopied] = useState(false);
-
-  const roomUrl = `http://localhost:3000/room/${roomId}`;
+  const roomUrl = `${process.env.NEXT_PUBLIC_HOSTNAME}/room/${roomId}`;
 
   const handleCopy = async () => {
     try {
@@ -54,7 +53,7 @@ export function WaitingRoom({
 
       <div className="flex flex-col items-center gap-3 w-full max-w-md">
         <div className="flex items-center gap-2 w-full bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm">
-          <span className="flex-1 text-sm text-gray-600 truncate font-mono">
+          <span className="flex-1 text-sm text-gray-600 font-mono">
             {roomUrl}
           </span>
           <button
