@@ -5,9 +5,15 @@ interface BoardProps {
   board: BoardType;
   lowestMoveIndex: number | null;
   onSquareClick: (index: number) => void;
+  disabled?: boolean;
 }
 
-export function Board({ board, lowestMoveIndex, onSquareClick }: BoardProps) {
+export function Board({
+  board,
+  lowestMoveIndex,
+  onSquareClick,
+  disabled = false,
+}: BoardProps) {
   return (
     <div className="grid grid-cols-3 gap-3 w-fit">
       {board.map((square, index) => (
@@ -15,7 +21,7 @@ export function Board({ board, lowestMoveIndex, onSquareClick }: BoardProps) {
           key={index}
           value={square}
           isAboutToExpire={lowestMoveIndex === index}
-          disabled={!!square}
+          disabled={disabled || !!square}
           onClick={() => onSquareClick(index)}
         />
       ))}

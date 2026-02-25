@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -24,34 +24,23 @@
 
 @layer utilities {
   body {
-    font-family: 'Arimo', 'Inter', sans-serif;
+    font-family: "Arimo", "Inter", sans-serif;
     @apply bg-white text-gray-800;
   }
 }
 
-.path {
+.animate path,
+.animate circle {
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
   animation: draw 2s ease forwards;
 }
 
-.second {
-  animation-delay: 0.5s;
+.animate path:nth-child(2) {
+  animation-delay: 0.3s;
 }
 
 @keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.circle {
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
-  animation: drawCircle 1.25s ease forwards;
-}
-
-@keyframes drawCircle {
   to {
     stroke-dashoffset: 0;
   }

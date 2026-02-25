@@ -12,9 +12,9 @@ export function GameStatus({ currentPlayer }: GameStatusProps) {
       <span className="text-base text-gray-700">É a vez do jogador</span>
       <span className="flex">
         {currentPlayer.value === "X" ? (
-          <PlayX withAnimation={false} width={24} height={24} />
+          <PlayX size={24} />
         ) : (
-          <Play0 withAnimation={false} width={24} height={24} />
+          <Play0 size={24} />
         )}
       </span>
     </div>
